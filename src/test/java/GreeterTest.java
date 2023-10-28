@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.*;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class GreeterTest {
@@ -33,5 +32,14 @@ public class GreeterTest {
         assertNotNull(greeting);
         assertNotEquals(notExpectedOutput, greeting);
         assertEquals(expectedOutput, greeting);
+    }
+
+    @Test
+    public void testGreetFirstLetterOfNameCapitalised(){
+        String nameWithLowerCase = "dale";
+
+        String greeting = greeter.greet(nameWithLowerCase);
+
+        assertEquals(expectedOutput,greeting);
     }
 }
