@@ -1,5 +1,10 @@
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito.*;
+
+
 import static org.junit.jupiter.api.Assertions.*;
+
 
 public class GreeterTest {
 
@@ -41,5 +46,13 @@ public class GreeterTest {
         String greeting = greeter.greet(nameWithLowerCase);
 
         assertEquals(expectedOutput,greeting);
+    }
+
+    @Test
+    public void testMorningGreeting() {
+       //Will have to mockTime
+        String output = greeter.greet("Dale");
+
+        assertEquals("Good morning Dale", output);
     }
 }
