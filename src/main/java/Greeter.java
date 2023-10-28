@@ -30,9 +30,11 @@ public class Greeter {
 
         if (hour >= 6 && hour <= 12) {
             return "Good morning ";
-        } else if(hour >= 18 && hour <= 22){
+        } else if(hour >= 18 && hour < 22){
             return "Good evening ";
-        } else {
+        } else if(hour >= 22 || hour < 6) {
+            return "Good night ";
+        }else{
             return HELLO;
         }
     }
