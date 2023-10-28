@@ -62,4 +62,14 @@ public class GreeterTest {
 
         assertEquals("Good morning Dale", output);
     }
+
+    @Test
+    public void testEveningGreeting() {
+
+        when(timeService.getHourOfDay()).thenReturn(19);
+
+        String output = greeter.greet("Dale");
+
+        assertEquals("Good evening Dale", output);
+    }
 }
