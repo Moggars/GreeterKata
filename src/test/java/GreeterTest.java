@@ -4,15 +4,20 @@ import org.mockito.Mockito.*;
 
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 
 public class GreeterTest {
 
     private Greeter greeter;
     private final String expectedOutput = "Hello Dale";
+    private TimeService timeService;
+
     @BeforeEach
     public void setUp() {
-        greeter = new Greeter();
+        timeService = mock(TimeService.class);
+        greeter = new Greeter(timeService);
     }
 
     @Test
@@ -50,7 +55,9 @@ public class GreeterTest {
 
     @Test
     public void testMorningGreeting() {
-       //Will have to mockTime
+
+        when(timeService.getHourOfDay()).thenReturn(10);
+
         String output = greeter.greet("Dale");
 
         assertEquals("Good morning Dale", output);
