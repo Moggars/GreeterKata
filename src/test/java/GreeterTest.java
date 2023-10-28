@@ -22,6 +22,9 @@ public class GreeterTest {
 
     @Test
     public void testGreetReturnsHelloName() {
+
+        when(timeService.getHourOfDay()).thenReturn(14);
+
         String name = "Dale";
         String notExpectedOutput = "Hello ";
 
@@ -34,6 +37,9 @@ public class GreeterTest {
 
     @Test
     public void testGreetReturnsHelloNameTrimmed() {
+
+        when(timeService.getHourOfDay()).thenReturn(15);
+
         String name = " Dale ";
         String notExpectedOutput = "Hello  Dale ";
 
@@ -46,6 +52,8 @@ public class GreeterTest {
 
     @Test
     public void testGreetFirstLetterOfNameCapitalised(){
+        when(timeService.getHourOfDay()).thenReturn(16);
+
         String nameWithLowerCase = "dale";
 
         String greeting = greeter.greet(nameWithLowerCase);
